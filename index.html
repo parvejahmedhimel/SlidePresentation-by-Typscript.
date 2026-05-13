@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fuel Explorer | Chemistry 11.1</title>
+    <script>
+      // Prevent some libraries from trying to overwrite window.fetch
+      // if it's already defined as a non-writable property.
+      if (typeof window !== 'undefined' && 'fetch' in window) {
+        const descriptor = Object.getOwnPropertyDescriptor(window, 'fetch');
+        if (descriptor && !descriptor.writable && !descriptor.set) {
+          console.warn('window.fetch is read-only. Guarding against overrides.');
+          // We can't actually "fix" it if it's read-only, 
+          // but we can try to intercept assignment via Proxy if needed,
+          // though usually just ignoring the assignment is fine.
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
