@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,900;1,900&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;700&family=Galada&family=Mina:wght@400;700&family=Tiro+Bangla&display=swap');
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+@theme {
+  --font-sans: "Inter", "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Playfair Display", "Tiro Bangla", serif;
+  --font-galada: "Galada", cursive;
+  --font-mina: "Mina", sans-serif;
+
+  --color-fuel-primary: var(--primary, #ff8c00);
+  --color-fuel-secondary: var(--secondary, #c05c00);
+  --color-fuel-dark: var(--bg-dark, #1a0a00);
+  --color-fuel-accent: var(--accent, #ffb347);
+}
+
+@layer base {
+  :root {
+    --text-base: #f5e6d0;
+  }
+  body {
+    @apply bg-[var(--color-fuel-dark)] antialiased transition-colors duration-500;
+    color: var(--text-base);
+    font-family: var(--font-active), "Inter", "Hind Siliguri", sans-serif;
+    min-height: 100vh;
+  }
+}
+
+.glass-panel {
+  @apply backdrop-blur-md transition-all duration-300;
+  background-color: var(--glass-bg, rgba(0, 0, 0, 0.2));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: var(--radius, 1rem);
+}
+
+.industrial-grid {
+  background-size: 40px 40px;
+  background-image: var(--bg-pattern, linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px));
+}
+
+.theme-preview-box {
+  @apply w-full aspect-video rounded-lg border-2 border-white/10 transition-all;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* KaTeX custom styling */
+.katex { font-size: 1.1em; }
